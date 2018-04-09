@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>calculator
+	</title>
+	<link rel="stylesheet" type="text/css" href="cal2.css">
+</head>
+<span class="body">
+<center>
+<body>
+
+ <center class="background">	
+<h1 class="h1">calculator<h1>
+
+
+  <input  type="text" placeholder="0000000000000000" name="input_box" class="screen" >
+  <br><br>
+  <input onclick="ButtonClick('AC')" type="button" name="buttonAC" class="btnon" value="AC">
+ 
+  <input onclick="ButtonClick('M+')" type="button" name="buttonM+" class="btnMp" value="M+">
+  <input onclick="ButtonClick('M-')" type="button" name="buttonM-" class="btnmm" value="M-">
+
+   <input onclick="ButtonClick('OFF')" type="button" name="buttonOFF" class="btnOFF" value="OFF">
+  <br>
+  <input onclick="ButtonClick(7)" type="button" name="button7" class="mybutton" value="7">	
+  <input onclick="ButtonClick(8)" type="button" name="button8" class="mybutton" value="8">
+  <input onclick="ButtonClick(9)" type="button" name="button9" class="mybutton" value="9">
+    <input onclick="ButtonClick('%')" type="button" name="button%" class="mybutton" value="%">
+
+  <input onclick="ButtonClick('C')" type="button" name="buttonC" class="btnC" value="C">
+ <br>
+
+  <input onclick="ButtonClick(4)" type="button" name="button4" class="mybutton" value="4">
+
+  <input onclick="ButtonClick(5)" type="button" name="button5" class="mybutton" value="5">
+
+  <input onclick="ButtonClick(6)" type="button" name="button6" class="mybutton" value="6">
+
+   <input onclick="ButtonClick('x')" type="button" name="buttonx" class="mybutton" value="x">
+
+
+  <input onclick="ButtonClick('/')" type="button" name="button/" class="mybutton" value="/">
+  <br>
+
+  <input onclick="ButtonClick(1)" type="button" name="button1" class="mybutton" value="1">
+
+
+  <input onclick="ButtonClick(2)" type="button" name="button2" class="mybutton" value="2">
+
+
+  <input onclick="ButtonClick(3)" type="button" name="button3" class="mybutton" value="3">
+
+  <input onclick="ButtonClick('+')" type="button" name="button+" class="mybutton" value="+">
+
+  <input onclick="ButtonClick('-')" type="button" name="button-" class="mybutton" value="-">
+  <br>
+
+  <input onclick="ButtonClick(0)" type="button" name="button0" class="mybutton" value="0">
+
+  <input onclick="ButtonClick(00)" type="button" name="button00" class="mybutton" value="00">
+
+  <input onclick="ButtonClick(000)" type="button" name="button000" class="mybutton" value="000">
+
+  <input onclick="ButtonClick('.')" type="button" name="button." class="mybutton" value=".">
+
+  <input onclick="ButtonClick('=')" type="button" name="button=" class="mybutton" value="=">
+</center>
+</body>
+</span>
+<script type="text/javascript">
+
+Num1 = 0;
+Result = 0;
+Operator = "";	
+isDotUsed = false;
+
+function ButtonClick(x){
+    var screen = document.querySelector('.screen');
+
+    if(x == '='){
+      if(Operator != ""){
+        if(Operator == '+'){
+          Result = +screen.value + +Num1;
+          screen.value = Result;
+        }else if(Operator == '-'){
+          Result = +Num1 - +screen.value;
+          screen.value = Result;
+        }else if(Operator == 'x'){
+          Result = +Num1 * +screen.value;
+          screen.value = Result;
+        }else if(Operator == '/'){
+          Result = +Num1 / +screen.value;
+          screen.value = Result;
+        }
+      }
+    }else if(x == '/'){
+      Num1 = screen.value;
+      Operator = "/";
+      screen.value = "";
+    }else if(x == 'x'){
+      Num1 = screen.value;
+      Operator = "x";
+      screen.value = "";
+    }else if(x == '-'){
+      Num1 = screen.value;
+      Operator = "-";
+      screen.value = "";
+    }else if(x == '+'){
+      Num1 = screen.value;
+      Operator = "+";
+      screen.value = "";
+    }else if(x == 'C'){
+      screen.value = "";
+      Num1 = 0;
+      Result = 0;
+      Operator = "";  
+      isDotUsed = false;
+    }else if(x == '00'){
+      screen.value = screen.value + '00';
+    }else if(x == "."){
+       if(!isDotUsed){
+            screen.value = screen.value + x;
+            isDotUsed = true;
+       }
+    }else{
+       screen.value = screen.value + x; 
+    }    
+}
+
+
+
+
+
+</script>
+</html>
+
+</center>
+</html>
